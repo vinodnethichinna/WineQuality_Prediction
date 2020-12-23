@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title> Wine Quality Prediction. </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            
+            font-weight: bold !important;
+            background-color: rgb(97, 182, 146) !important;
+           
+
+        }
+
+        .borderless td,
+        .borderless th {
+            border: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 align="center"> Wine Quality Prediction Application </h1>
+
+    <div class="container">
+        <br>
+        <!--Form-->
+        <form action="{{url_for('predict')}}" method="POST">
+            <table align="center" class="table borderless">
+                <tr>
+                    <td>
+                        <b>Fixed_Acidity :</b>
+                    </td>
+                    <td>
+                        <input type="text" name="Fixed_Acidity" required> 
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <b>Residual_Sugar :</b>
+                    </td>
+                    <td>
+                        <input type="text" name="Residual_Sugar" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                       <b>Free_Sulphur_Dioxide :</b> 
+                    </td>
+                    <td>
+                        <input type=" text" name="Free_Sulphur_Dioxide" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       <b> Total_Sulphur_Dioxide :</b>
+                    </td>
+                    <td>
+                        <input type=" text" name="Total_Sulphur_Dioxide" required>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <b>Alcohol :</b>
+
+                    </td>
+                    <td>
+                        <input type=" text" name="Alcohol" required>
+                    </td>
+                </tr>
+            </table>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6" style="margin-top: 16px; padding-left: 400px;">
+                        <input type="submit" value="Predict My Data" class="btn btn-primary pull-right">
+                    </div>
+                    <div class="col-6" style="margin-top: 16px;">
+                        <input type="reset" value="Reset" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+
+            <!--Prediction Result-->
+            <div id="result" align="center">
+                <strong style="color:rgb(29, 27, 27); font-size: 32px;">{{result}}</strong>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
